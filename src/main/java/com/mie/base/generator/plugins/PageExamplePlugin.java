@@ -77,7 +77,7 @@ public class PageExamplePlugin extends PluginAdapter {
 		
 		topLevelClass.addMethod(toJsonMethod);
 		topLevelClass.addImportedType("com.fasterxml.jackson.core.JsonProcessingException");
-		topLevelClass.addImportedType("com.els.base.utils.json.JsonUtils");
+		topLevelClass.addImportedType("com.mie.base.utils.json.JsonUtils");
 		
 	}
 
@@ -120,7 +120,7 @@ public class PageExamplePlugin extends PluginAdapter {
 		topLevelClass.addField(pageViewField);
 		topLevelClass.addMethod(getPageViewMethod);
 		topLevelClass.addMethod(setPageViewMethod);
-		topLevelClass.addImportedType("com.els.base.core.entity.PageView");
+		topLevelClass.addImportedType("com.mie.base.core.entity.PageView");
 	}
 
 	private void addIExampleInterface(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
@@ -128,7 +128,7 @@ public class PageExamplePlugin extends PluginAdapter {
 		String interfaceOrExample = "IExample<" + className + ">";
 
 		topLevelClass.addSuperInterface(new FullyQualifiedJavaType(interfaceOrExample));
-		topLevelClass.addImportedType("com.els.base.core.entity.IExample");
+		topLevelClass.addImportedType("com.mie.base.core.entity.IExample");
 	}
 
 	private void addSuperClass(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
@@ -136,7 +136,7 @@ public class PageExamplePlugin extends PluginAdapter {
 		String superExample = "AbstractExample<" + className + ">";
 		
 		topLevelClass.setSuperClass(new FullyQualifiedJavaType(superExample));
-		topLevelClass.addImportedType("com.els.base.core.entity.AbstractExample");
+		topLevelClass.addImportedType("com.mie.base.core.entity.AbstractExample");
 	}
 	
 	/** 

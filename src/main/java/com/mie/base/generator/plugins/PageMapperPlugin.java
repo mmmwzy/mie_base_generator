@@ -183,7 +183,7 @@ public class PageMapperPlugin extends PluginAdapter {
 		String iMapperStr = "IMapper<"+ className +", "+ exampleName+">";
 		FullyQualifiedJavaType fullIMapper = new FullyQualifiedJavaType(iMapperStr);
 		
-		interfaze.addImportedType(new FullyQualifiedJavaType("com.els.base.core.dao.IMapper"));
+		interfaze.addImportedType(new FullyQualifiedJavaType("com.mie.base.core.dao.IMapper"));
 		interfaze.addSuperInterface(fullIMapper);
 	}
 	

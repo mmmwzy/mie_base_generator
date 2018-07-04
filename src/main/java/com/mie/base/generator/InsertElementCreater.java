@@ -52,9 +52,9 @@ public class InsertElementCreater {
         context.getCommentGenerator().addComment(answer);
 
        
-        String bindUUID = "<bind name=\"_uuid\" value=\"@com.els.base.utils.uuid.UUIDGenerator@generateUUIDAndSetId(#this)\"/>";
+        String bindUUID = "<bind name=\"_uuid\" value=\"@com.mie.base.utils.uuid.UUIDGenerator@generateUUIDAndSetId(#this)\"/>";
     	if (!identity.equals("id")) {
-			bindUUID = "<bind name=\"_uuid\" value=\"@com.els.base.utils.uuid.UUIDGenerator@generateUUIDAndSetId(#this)\"/>";
+			bindUUID = "<bind name=\"_uuid\" value=\"@com.mie.base.utils.uuid.UUIDGenerator@generateUUIDAndSetId(#this)\"/>";
 		}
 		TextElement uuidBindElement = new TextElement(bindUUID);
 		answer.addElement(uuidBindElement);

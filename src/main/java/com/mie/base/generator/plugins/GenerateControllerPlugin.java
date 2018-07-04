@@ -457,12 +457,12 @@ public class GenerateControllerPlugin extends PluginAdapter {
 		list.add(new FullyQualifiedJavaType("org.springframework.web.servlet.ModelAndView"));
 		list.add(new FullyQualifiedJavaType("org.springframework.web.bind.annotation.RequestMethod"));
 
-		list.add(new FullyQualifiedJavaType("com.els.base.core.entity.ResponseResult"));
-		list.add(new FullyQualifiedJavaType("com.els.base.core.utils.ResponseCode"));
-		list.add(new FullyQualifiedJavaType("com.els.base.core.utils.CriteriaUtils"));
-		list.add(new FullyQualifiedJavaType("com.els.base.core.utils.query.QueryParamWapper"));
-		list.add(new FullyQualifiedJavaType("com.els.base.core.entity.PageView"));
-		list.add(new FullyQualifiedJavaType("com.els.base.core.exception.CommonException"));
+		list.add(new FullyQualifiedJavaType("com.mie.base.core.entity.ResponseResult"));
+		list.add(new FullyQualifiedJavaType("com.mie.base.core.utils.ResponseCode"));
+		list.add(new FullyQualifiedJavaType("com.mie.base.core.utils.CriteriaUtils"));
+		list.add(new FullyQualifiedJavaType("com.mie.base.core.utils.query.QueryParamWapper"));
+		list.add(new FullyQualifiedJavaType("com.mie.base.core.entity.PageView"));
+		list.add(new FullyQualifiedJavaType("com.mie.base.core.exception.CommonException"));
 
 		list.add(this.getModelType(introspectedTable, modelClassName));
 		list.add(this.getExampleType(introspectedTable, modelClassName));

@@ -94,7 +94,7 @@ public class GenerateServicePlugin extends PluginAdapter{
 	}
 	
 	public void addBaseService(Interface service, IntrospectedTable introspectedTable, String modelClassName){
-		service.addImportedType(new FullyQualifiedJavaType("com.els.base.core.service.BaseService"));
+		service.addImportedType(new FullyQualifiedJavaType("com.mie.base.core.service.BaseService"));
 		
 		FullyQualifiedJavaType modelType = this.getModelType(introspectedTable, modelClassName);
 		service.addImportedType(modelType);
@@ -152,7 +152,7 @@ public class GenerateServicePlugin extends PluginAdapter{
 		
 		serviceImpl.addImportedType(new FullyQualifiedJavaType("org.springframework.cache.annotation.CacheEvict"));
 		serviceImpl.addImportedType(new FullyQualifiedJavaType("org.springframework.cache.annotation.Cacheable"));
-		serviceImpl.addImportedType(new FullyQualifiedJavaType("com.els.base.core.entity.PageView"));
+		serviceImpl.addImportedType(new FullyQualifiedJavaType("com.mie.base.core.entity.PageView"));
 		serviceImpl.addImportedType(new FullyQualifiedJavaType("java.util.List"));
 		
 		this.addServiceOverrideMethod(serviceImpl, introspectedTable, className);
@@ -287,7 +287,7 @@ public class GenerateServicePlugin extends PluginAdapter{
 	
 	private Method methodQueryAllObjByExample(IntrospectedTable introspectedTable,String modelClassName, String mapperName){
 		/*
-		@Cacheable(value="dicGroup", key="'DicGroupService_' + #root.methodName + '_'+ T(com.els.base.utils.encryption.Md5Utils).md5Object(#example)")
+		@Cacheable(value="dicGroup", key="'DicGroupService_' + #root.methodName + '_'+ T(com.mie.base.utils.encryption.Md5Utils).md5Object(#example)")
 		@Override
 		public List<DicGroup> queryAllObjByExample(DicGroupExample example) {
 			return this.dicGroupMapper.selectByExample(example);
@@ -302,7 +302,7 @@ public class GenerateServicePlugin extends PluginAdapter{
 		String bodyLine = "return this."+mapperName+".selectByExample(example);";
 		method.addBodyLine(bodyLine);
 		if (this.isRedisEnable) {
-			method.addAnnotation("@Cacheable(value=\""+StringUtils.uncapitalize(modelClassName)+"\", key=\"'"+modelClassName+"Service_' + #root.methodName + '_'+ T(com.els.base.utils.encryption.Md5Utils).md5Object(#example)\")");
+			method.addAnnotation("@Cacheable(value=\""+StringUtils.uncapitalize(modelClassName)+"\", key=\"'"+modelClassName+"Service_' + #root.methodName + '_'+ T(com.mie.base.utils.encryption.Md5Utils).md5Object(#example)\")");
 		}
 		method.addAnnotation("@Override");
 		return method;
@@ -310,7 +310,7 @@ public class GenerateServicePlugin extends PluginAdapter{
 	
 	private Method methodQueryObjByPage(IntrospectedTable introspectedTable,String modelClassName, String mapperName){
 		/*
-		@Cacheable(value="dicGroup", key="'DicGroupService_' + #root.methodName + '_'+ T(com.els.base.utils.encryption.Md5Utils).md5Object(#example)")
+		@Cacheable(value="dicGroup", key="'DicGroupService_' + #root.methodName + '_'+ T(com.mie.base.utils.encryption.Md5Utils).md5Object(#example)")
 		@Override
 		public PageView<DicGroup> queryObjByPage(DicGroupExample example) {
 			PageView<DicGroup> pageView = example.getPageView();
@@ -336,7 +336,7 @@ public class GenerateServicePlugin extends PluginAdapter{
 		method.addBodyLine("pageView.setQueryResult(this."+mapperName+".selectByExampleByPage(example));");
 		method.addBodyLine("return pageView;");
 		if (this.isRedisEnable) {
-			method.addAnnotation("@Cacheable(value=\""+StringUtils.uncapitalize(modelClassName)+"\", key=\"'"+modelClassName+"Service_' + #root.methodName + '_'+ T(com.els.base.utils.encryption.Md5Utils).md5Object(#example)\")");
+			method.addAnnotation("@Cacheable(value=\""+StringUtils.uncapitalize(modelClassName)+"\", key=\"'"+modelClassName+"Service_' + #root.methodName + '_'+ T(com.mie.base.utils.encryption.Md5Utils).md5Object(#example)\")");
 		}
 		method.addAnnotation("@Override");
 		return method;
